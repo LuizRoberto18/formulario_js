@@ -23,9 +23,11 @@
         .container {
             background-color: silver;
             padding: 5%;
+            border: 1px solid black;
         }
-        input {
-            border: solid 1px black;
+        
+        .focus{
+            border-color: red;
         }
     </style>
 
@@ -83,11 +85,33 @@
                 form.preferencia[2].focus();
                 return false;
             }
+            //vereicar se todos os campus estão válidos
             if (valided  == 6) {
                 alert("Seu Cadastro foi Concluido com Sucesso");
             }
         }
 
+
+        function limpar() {
+            //se os campus estiverem preenchidos a função retorna com o campo vazio
+            if (document.getElementById("nome").value !="" || document.getElementById("email").value !="" ||
+                document.getElementById("senha").value !="" || document.getElementById("ConfirmaSenha").value !="" ||
+                document.getElementById("gridRadios1").value != true ||  document.getElementById("gridRadios2").value != true || 
+                document.getElementById("gridRadios3").value != true || document.getElementById("gridCheck1").value !=true ||
+                document.getElementById("gridCheck2").value !=true || document.getElementById("gridCheck3").value !=true ) {
+
+                    document.getElementById('nome').value="";
+                    document.getElementById('email').value="";
+                    document.getElementById('senha').value="";
+                    document.getElementById('ConfirmaSenha').value="";
+                    document.getElementById('gridRadios1').checked= false;
+                    document.getElementById("gridRadios2").checked= false;
+                    document.getElementById("gridRadios3").checked= false;
+                    document.getElementById("gridCheck1").checked= false;
+                    document.getElementById("gridCheck2").checked= false;
+                    document.getElementById("gridCheck3").checked= false;
+            }
+        }
     </script>
 
 </head>
@@ -100,26 +124,25 @@
             <div class="form-group row">
                 <label for="nome" class="col-sm-2 col-form-label">Nome</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex.: Jose maria">
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex.: Jose maria" style=" border: 1px solid black;">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="email" class="col-sm-2 col-form-label">E-mail</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Ex:. josemaria@gmail.com">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Ex:. josemaria@gmail.com" style=" border: 1px solid black;">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="senha" class="col-sm-2 col-form-label">Senha</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Ex.: *******" width="40"
-                        maxlength="30">
+                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Ex.: *******" width="40" maxlength="30" style=" border: 1px solid black;">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="ConfirmaSenha" class="col-sm-2 col-form-label">Confirmar Senha</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="ConfirmaSenha" name="ConfirmaSenha" placeholder="Confirme a Senha">
+                    <input type="password" class="form-control" id="ConfirmaSenha" name="ConfirmaSenha" placeholder="Confirme a Senha" style=" border: 1px solid black;">
                 </div>
             </div>
             <fieldset class="form-group">
@@ -175,7 +198,7 @@
 
             </div>
             <button type="button" class="btn btn-dark">VALIDAR</button>
-            <button type="button" class="btn btn-dark">LIMPAR</button>
+            <button type="button" class="btn btn-dark" value="limpar" onclick="limpar()">LIMPAR</button>
 
         </form>
     </div>
