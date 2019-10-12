@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "Debug Java",
+            "type": "java",
+            "externalConsole": true,     //a entrada do usuário não funcionará se configurada como false :(
+            "stopOnEntry": true,
+            "preLaunchTask": "build", // Executa a tarefa criada acima antes de executar esta configuração
+            "name": "Spring Boot-DemoApplication<formulario_js>",
+            "request": "launch",
+            //"cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "ifal.edu.br.formulario_js.DemoApplication",
+            "projectName": "formulario_js",
+           // "args": "",
+
+            "jdkPath": "${env:JAVA_HOME}/bin",        // Você precisa definir a variável de ambiente JAVA_HOME
+            "cwd": "${workspaceRoot}",
+            "startupClass": "${workspaceRoot}${file}",
+            "sourcePath": ["${workspaceRoot}"],   // Indica onde estão os arquivos de origem (.java)
+            "classpath": ["${workspaceRoot}"],    // Indica a localização dos seus arquivos .class
+            "options": [],     // Opções adicionais para passar para o executável java
+            "args": []  // Argumentos da linha de comando para passar para a classe de inicialização
+        }
+
+    ],
+    "compounds": []
+}
