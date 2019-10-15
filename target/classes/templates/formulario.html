@@ -29,11 +29,14 @@
         .focus{
             border-color: red;
         }
+        button{
+            margin-left: 60px;
+        }
     </style>
 
     <script type="text/javascript">
 
-        function validarForm(form) {
+       function validarForm(form) {
 
             //validação do campo nome
             if (form.nome.value == " " || form.nome.value == null || form.nome.value < 3) {
@@ -51,17 +54,17 @@
 
             //validação do campo senha e confirmacção de senha
             if (form.senha.value == " " ) {
-                alert("indique uma senha válida");
+                alert("digite uma senha");
                 form.senha.focus();
-            }else if(form.ConfirmaSenha.value == " "){
+            } else if(form.ConfirmaSenha.value == " "){
                 alert("usuario não confirmou a senha");
                 form.ConfirmaSenha.focus();
-            }else if( form.senha.value != form.ConfirmaSenha.value){
+            } else if( form.senha.value != form.ConfirmaSenha.value){
                 alert("suas senhas não correspondem");
                 form.senha.focus();
                 form.ConfirmaSenha.focus();
             } else{
-                return fasle;
+                return form.senha.submit() && form.ConfirmaSenha.submit();
             }
 
             //validação do campo modulo com tipo de botão radio
@@ -79,7 +82,7 @@
             if ((form.preferencia[0].checked) || (form.preferencia[1].checked) || (form.preferencia[2].checked)) {
                 
             }else{
-                alert("É necessá escolher no mínimo uma Preferencia de disciplina");
+                alert("É necessário escolher no mínimo uma Preferencia de disciplina");
                 form.preferencia[0].focus();
                 form.preferencia[1].focus();
                 form.preferencia[2].focus();
@@ -89,8 +92,7 @@
             if (valided  == 6) {
                 alert("Seu Cadastro foi Concluido com Sucesso");
             }
-        }
-
+        } 
 
         function limpar() {
             //se os campus estiverem preenchidos a função retorna com o campo vazio
@@ -120,28 +122,28 @@
     <h1>Faça o seu cadastro</h1>
 
     <div class="container">
-        <form name="form" method="POST" action="cadastro" onsubmit="return validarForm(this);">
+        <form name="form" method="POST" action="cadastro"> 
             <div class="form-group row">
                 <label for="nome" class="col-sm-2 col-form-label">Nome</label>
-                <div class="col-sm-10">
+                <div class="col-sm-9">
                     <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex.: Jose maria" style=" border: 1px solid black;">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="email" class="col-sm-2 col-form-label">E-mail</label>
-                <div class="col-sm-10">
+                <div class="col-sm-7">
                     <input type="email" class="form-control" id="email" name="email" placeholder="Ex:. josemaria@gmail.com" style=" border: 1px solid black;">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="senha" class="col-sm-2 col-form-label">Senha</label>
-                <div class="col-sm-10">
-                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Ex.: *******" width="40" maxlength="30" style=" border: 1px solid black;">
+                <div class="col-sm-5">
+                    <input type="password" class="form-control" id="senha" name="senha"  placeholder="Ex.: *******" width="40" maxlength="30" style=" border: 1px solid black;">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="ConfirmaSenha" class="col-sm-2 col-form-label">Confirmar Senha</label>
-                <div class="col-sm-10">
+                <div class="col-sm-5">
                     <input type="password" class="form-control" id="ConfirmaSenha" name="ConfirmaSenha" placeholder="Confirme a Senha" style=" border: 1px solid black;">
                 </div>
             </div>
@@ -197,8 +199,8 @@
                 </div>
 
             </div>
-            <button type="button" class="btn btn-dark">VALIDAR</button>
-            <button type="button" class="btn btn-dark" value="limpar" onclick="limpar()">LIMPAR</button>
+        <button type="button" class="btn btn-dark" style="margin-left: 350px" value="validar" onclick="validarForm(form)">VALIDAR</button>
+        <button type="button" class="btn btn-dark" value="limpar" onclick="limpar()">LIMPAR</button>
 
         </form>
     </div>
