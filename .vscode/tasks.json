@@ -10,7 +10,7 @@
     "isBackground": true,
     "tasks": [
         {
-            "taskName": "build",
+            //"taskName": "build",
             "args": ["-g", "${file}"],
             "command": "javac"
         }

@@ -3,7 +3,7 @@
     "configurations": [
         
         {
-            "name": "Debug Java",
+            //"name": "Debug Java",
             "type": "java",
             "externalConsole": true,     //a entrada do usuário não funcionará se configurada como false :(
             "stopOnEntry": true,
