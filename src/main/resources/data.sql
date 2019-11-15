@@ -1,0 +1,4 @@
+insert into aluno( id, nome, email, senha, confSenha, modulo, preferencias) values('394', 'James Arthur', 'james.arthur@gmail.com','123456', '123456', 'Terceiro', 'Pweb2')
+insert into aluno( id, nome, email, senha, confSenha, modulo, preferencias) values ('908', 'Ananda', 'ananda@gmail.com','987654','987654','Terceiro' 'P.O.O')
+insert into aluno( id, nome, email, senha, confSenha, modulo, preferencias) values('574', 'Bbno$', 'bbno$gmail.com', '54321','54321', 'Segundo', 'programação móvel')
+insert into aluno( id, nome, email, senha, confSenha, modulo, preferencias) values("834" , 'Jeremih', 'jeremih@gmail.com','0123456','0123456','Primeiro','Pweb2')
