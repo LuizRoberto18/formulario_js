@@ -1,13 +1,18 @@
-package ifal.edu.br.formulario_js;;
+package ifal.edu.br.formulario_js;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import org.springframework.data.annotation.Id;
 
 @Entity
-public class Aluno{
+public class Aluno {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id; 
 
-    private String nome;
+    String nome;
 
     private String email;
 
@@ -20,14 +25,14 @@ public class Aluno{
     private String[] preferencias;
 
 	public Long getId(){
-		return super.getId();
+		return getId();
 	}
     
 	public String getNome() {
-		return super.getNome();
+		return getNome();
 	}
 
-    public String setNome(String nome){
+    public void setNome(String nome){
         this.nome = nome;
     }
 
@@ -69,6 +74,10 @@ public class Aluno{
 
 	public void setConfSenha(String confSenha) {
 		this.confSenha = confSenha;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

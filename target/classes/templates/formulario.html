@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html  xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="layout">
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta  http-equiv="Content-Type" content="text/html" charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -199,11 +200,11 @@
     <h1>Faça o seu cadastro</h1>
 
     <div class="container">
-        <form name="form" method="POST" action="cadastro">
+        <form name="form" method="POST" action="/cadastro">
             <div class="form-group row">
                 <label for="nome" class="col-sm-2 col-form-label">Nome</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex.: Jose maria"
+                    <input type="text" class="form-control" id="nome" name="nome" th:value="${aluno.nome}" placeholder="Ex.: Jose maria"
                         style=" border: 1px solid black;">
                 </div>
                 <span class="msg_erro msg_nome" style="display: none" name="span"> O Campo nome é Obrigatorio</span>
@@ -213,7 +214,7 @@
                 <label for="email" class="col-sm-2 col-form-label">E-mail</label>
                 <div class="col-sm-7">
                     <input type="email" class="form-control" id="email" name="email"
-                        placeholder="Ex:. josemaria@gmail.com" style=" border: 1px solid black;">
+                        placeholder="Ex:. josemaria@gmail.com" th:value="${aluno.email}" style=" border: 1px solid black;">
                 </div>
             </div>
             <span class="msg_erro msg_email" style="display: none" name="span"> O Campo E-mail é Obrigatorio</span>
@@ -222,7 +223,7 @@
             <div class="form-group row">
                 <label for="senha" class="col-sm-2 col-form-label">Senha</label>
                 <div class="col-sm-5">
-                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Ex.: *******"
+                    <input type="password" class="form-control" id="senha" name="senha" th:value="${aluno.senha}" placeholder="Ex.: *******"
                         width="40" maxlength="30" style=" border: 1px solid black;">
                 </div>
             </div>
@@ -233,7 +234,7 @@
                 <label for="ConfirmaSenha" class="col-sm-2 col-form-label">Confirmar Senha</label>
                 <div class="col-sm-5">
                     <input type="password" class="form-control" id="ConfirmaSenha" name="ConfirmaSenha"
-                        placeholder="Confirme a Senha" style=" border: 1px solid black;">
+                    placeholder="Confirme a Senha" style=" border: 1px solid black;" th:value="${aluno.confSenha}">
                 </div>
             </div>
             <span class="msg_erro msg_confSenha" style="display: none" name="span"> O Campo Confirmar Senha é
@@ -247,21 +248,21 @@
                     <div class="col-sm-10">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
-                                value="option1">
+                                value="option1" th:selected="${aluno.modulo == Primeiro}">
                             <label class="form-check-label" for="gridRadios1">
                                 Primeiro
                             </label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
-                                value="option2">
+                                value="option2" th:selected="${aluno.modulo == Segundo}">
                             <label class="form-check-label" for="gridRadios2">
                                 Segundo
                             </label>
                         </div>
                         <div class="form-check disabled">
                             <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3"
-                                value="option3">
+                                value="option3" th:selected="${aluno.modulo == Terceiro}">
                             <label class="form-check-label" for="gridRadios3">
                                 Terceiro
                             </label>
@@ -275,19 +276,22 @@
                 <div class="col-sm-2" style="color: white;">Preferencias</div>
                 <div class="col-sm-10" name="Preferencias">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="preferencia" id="gridCheck1">
+                        <input class="form-check-input" type="checkbox" name="preferencia" id="gridCheck1"
+                            th:selected="${aluno.preferencias != ? #arrays.contains(aluno.preferencias, 'P.O.O') : false}">
                         <label class="form-check-label" for="gridCheck1">
                             P.O.O
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="preferencia" id="gridCheck2">
+                        <input class="form-check-input" type="checkbox" name="preferencia" id="gridCheck2"
+                            th:selected="${aluno.preferencias != ? #arrays.contains(aluno.preferencias, 'Pweb2') : false">
                         <label class="form-check-label" for="gridCheck1">
                             Pweb2
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="preferencia" id="gridCheck3">
+                        <input class="form-check-input" type="checkbox" name="preferencia" id="gridCheck3"
+                            th:selected="${aluno.preferencias != ? #arrays.contains(aluno.preferencias, 'programção móvel') : false">
                         <label class="form-check-label" for="gridCheck1">
                             programção móvel
                         </label>
@@ -305,6 +309,7 @@
         </form>
     </div>
 
+    <p th:text="${mensagem}"></p>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
