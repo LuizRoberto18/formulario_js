@@ -3,7 +3,7 @@ package ifal.edu.br.formulario_js;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import org.springframework.data.annotation.Id;
+import  javax.persistence.Id;
 
 @Entity
 public class Aluno {
@@ -12,7 +12,7 @@ public class Aluno {
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id; 
 
-    String nome;
+   private String nome;
 
     private String email;
 
@@ -29,7 +29,7 @@ public class Aluno {
 	}
     
 	public String getNome() {
-		return getNome();
+		return this.nome;
 	}
 
     public void setNome(String nome){
